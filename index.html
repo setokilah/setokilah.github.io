@@ -1,102 +1,199 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>SETO KILLAH</title>
+<meta name="theme-color" content="#171512">
+<title>SETO KILLAH | 4TA FAM</title>
 
 <style>
-body{
-background:#000;
-color:white;
-font-family:Arial,sans-serif;
-text-align:center;
-margin:0;
-padding:20px;
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 25px 15px 35px;
+  background-color: #25221e;
+  background-image:
+    radial-gradient(ellipse at 15% 20%, #51483c 0%, transparent 35%),
+    radial-gradient(ellipse at 85% 70%, #443b32 0%, transparent 40%),
+    repeating-linear-gradient(8deg, transparent 0px, rgba(255,255,255,.025) 2px, transparent 4px, rgba(0,0,0,.10) 7px),
+    repeating-linear-gradient(90deg, #292520 0px, #383129 3px, #27231f 7px);
 }
 
-.logo{
-width:180px;
-height:180px;
-border-radius:50%;
-margin-top:20px;
-object-fit:cover;
-border:3px solid white;
+.wall {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 28px 18px 35px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.65)),
+    repeating-linear-gradient(0deg, #51483d 0px, #39332c 3px, #494136 7px, #302b25 12px);
+  box-shadow: 0 15px 45px rgba(0,0,0,.65);
 }
 
-h1{
-font-size:42px;
-margin:20px 0 10px;
+.wall::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .25;
+  background-image: radial-gradient(#000 1px, transparent 1px);
+  background-size: 5px 5px;
 }
 
-.bio{
-font-size:22px;
-opacity:.9;
-margin-bottom:30px;
+.graffiti {
+  position: relative;
+  z-index: 1;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000;
+  letter-spacing: 2px;
 }
 
-.btn{
-display:block;
-width:85%;
-max-width:400px;
-margin:15px auto;
-padding:18px;
-background:white;
-color:black;
-text-decoration:none;
-font-size:22px;
-font-weight:bold;
-border-radius:15px;
+.tag-one {
+  color: #e9d9b7;
+  font-size: clamp(30px, 8vw, 43px);
+  margin: 5px 0 0;
+  transform: rotate(-5deg);
 }
 
-.btn:hover{
-transform:scale(1.03);
+.tag-two {
+  color: #b84b32;
+  font-size: clamp(35px, 10vw, 53px);
+  margin: 0 0 10px;
+  transform: rotate(4deg);
 }
 
-.footer{
-margin-top:40px;
-opacity:.6;
-font-size:14px;
+.tag-three {
+  color: #d6c9a8;
+  font-size: 19px;
+  margin: 12px 0 20px;
+  transform: rotate(-2deg);
+}
+
+.logo-watermark {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  object-fit: contain;
+  opacity: .12;
+  top: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.profile-photo {
+  display: block;
+  width: 175px;
+  height: 175px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 4px solid #d6c9a8;
+  margin: 22px auto;
+  box-shadow: 0 5px 22px rgba(0,0,0,.8);
+}
+
+h1 {
+  font-size: clamp(32px, 9vw, 45px);
+  margin: 15px 0 5px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 0 #000;
+}
+
+.bio {
+  color: #ddd2bd;
+  font-size: 15px;
+  margin: 12px 0 28px;
+  letter-spacing: 1px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  max-width: 390px;
+  margin: 14px auto;
+  padding: 17px 12px;
+  color: #fff;
+  background: rgba(15,15,15,.88);
+  border: 2px solid #a99a7e;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  box-shadow: 4px 5px 0 rgba(0,0,0,.65);
+  transition: .2s;
+}
+
+.btn:hover {
+  background: #a33e2b;
+  border-color: white;
+  transform: translateY(-3px);
+}
+
+.footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 35px;
+  color: #c7bda9;
+  font-size: 12px;
+  letter-spacing: 2px;
 }
 </style>
 </head>
 
 <body>
+<main class="wall">
 
-<img class="logo" src="logo.png">
+  <img class="logo-watermark" src="logo.png" alt="Logo Seto Killah">
 
-<img class="logo" src="perfil.jpg">
+  <div class="content">
 
-<h1>SETO KILLAH 🥷🍄⛩️</h1>
+    <div class="graffiti tag-one">SETO</div>
+    <div class="graffiti tag-two">KILLAH</div>
+    <div class="graffiti tag-three">4TA FAM • UNDERGROUND</div>
 
-<div class="bio">
-Rapero • Tatuador • Productor
-</div>
+    <img class="profile-photo" src="perfil.jpg" alt="Seto Killah">
 
-<a class="btn" href="https://www.instagram.com/setokillah">
-📸 Instagram
-</a>
+    <h1>SETO KILLAH 🥷🏼🍄⛩️</h1>
 
-<a class="btn" href="https://open.spotify.com/artist/0cPqA7fn4r8WcMWQUMUP4F">
-🎵 Spotify
-</a>
+    <div class="bio">
+      RAPERO • TATUADOR • PRODUCTOR
+    </div>
 
-<a class="btn" href="https://youtube.com/@setokillah4ta-fam">
-▶️ YouTube
-</a>
+    <a class="btn" href="https://www.instagram.com/setokillah" target="_blank" rel="noopener">📸 INSTAGRAM</a>
 
-<a class="btn" href="https://www.tiktok.com/@seto.killah">
-🎬 TikTok
-</a>
+    <a class="btn" href="https://open.spotify.com/artist/0cPqA7fn4r8WcMWQUMUP4F" target="_blank" rel="noopener">🎵 SPOTIFY</a>
 
-<a class="btn" href="https://www.facebook.com/share/17sMiKRwQr/">
-📘 Facebook
-</a>
+    <a class="btn" href="https://youtube.com/@setokillah4ta-fam" target="_blank" rel="noopener">▶️ YOUTUBE</a>
 
-<div class="footer">
-© SETO KILLAH
-</div>
+    <a class="btn" href="https://www.tiktok.com/@seto.killah" target="_blank" rel="noopener">🎬 TIKTOK</a>
 
+    <a class="btn" href="https://www.facebook.com/share/17sMiKRwQr/" target="_blank" rel="noopener">📘 FACEBOOK</a>
+
+  </div>
+
+  <div class="footer">
+    © SETO KILLAH • 4TA FAM
+  </div>
+
+</main>
 </body>
 </html>
