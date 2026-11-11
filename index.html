@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#171615">
+<meta name="description" content="Seto Killah — rapero, tatuador y artista independiente.">
 <title>SETO KILLAH | 4TA FAM</title>
 
 <style>
@@ -25,10 +26,13 @@ body {
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--cream);
-  background:
-    linear-gradient(rgba(12,11,10,.67), rgba(12,11,10,.78)),
-    url("fondo-grafiti.jpg") center center / cover fixed;
   background-color: #292725;
+  background-image:
+    linear-gradient(rgba(12,11,10,.68), rgba(12,11,10,.80)),
+    url("https://images.unsplash.com/photo-1759919047748-b26bf01ea6cf?auto=format&fit=crop&fm=jpg&q=80&w=1800");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 body::before {
@@ -36,12 +40,14 @@ body::before {
   position: fixed;
   inset: 0;
   background: url("logo.png") center center / min(75vw, 520px) auto no-repeat;
-  opacity: .10;
+  opacity: .08;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 }
 
 main {
+  position: relative;
+  z-index: 1;
   width: min(100% - 30px, 470px);
   margin: auto;
   padding: 35px 0 45px;
@@ -53,6 +59,7 @@ main {
   border-radius: 20px;
   padding: 25px 20px;
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   box-shadow: 0 15px 45px rgba(0,0,0,.4);
 }
 
@@ -69,10 +76,11 @@ main {
 }
 
 .brand p {
-  color: var(--muted);
-  letter-spacing: 3px;
-  font-size: 11px;
-  margin-top: 9px;
+  color: var(--cream);
+  letter-spacing: 4px;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 12px 0 0;
 }
 
 .photos {
@@ -86,6 +94,7 @@ main {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center;
   border-radius: 50%;
   border: 3px solid rgba(238,231,220,.75);
   display: block;
@@ -127,16 +136,16 @@ main {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-height: 49px;
+  min-height: 60px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 15px;
   background: rgba(255,255,255,.09);
-  border: 1px solid rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.13);
   color: white;
   text-decoration: none;
   font-size: 13px;
   font-weight: bold;
-  transition: .2s;
+  transition: background .2s, transform .2s;
 }
 
 .social:hover {
@@ -145,8 +154,9 @@ main {
 }
 
 .social img {
-  width: 21px;
-  height: 21px;
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
 }
 
 .contact {
@@ -155,17 +165,23 @@ main {
   justify-content: center;
   gap: 10px;
   width: 100%;
+  min-height: 64px;
   padding: 15px;
-  border-radius: 30px;
+  border-radius: 35px;
   margin-top: 13px;
   text-decoration: none;
   font-size: 14px;
   font-weight: bold;
+  transition: filter .2s;
+}
+
+.contact:hover {
+  filter: brightness(1.08);
 }
 
 .contact img {
-  width: 22px;
-  height: 22px;
+  width: 23px;
+  height: 23px;
 }
 
 .whatsapp {
@@ -188,8 +204,28 @@ footer {
 }
 
 @media (max-width: 360px) {
-  .panel { padding: 20px 14px; }
-  .social { font-size: 12px; }
+  main {
+    width: min(100% - 20px, 470px);
+  }
+
+  .panel {
+    padding: 20px 14px;
+  }
+
+  .social {
+    font-size: 12px;
+    gap: 7px;
+  }
+
+  .photos {
+    gap: 9px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll;
+  }
 }
 </style>
 </head>
@@ -200,12 +236,12 @@ footer {
 
     <header class="brand">
       <h1>SETO KILLAH</h1>
-      <p>🥷🏼 🍄 ⛩️</p>
+      <p>4TA FAM</p>
     </header>
 
-    <section class="photos">
-      <img src="perfil.jpg" alt="Seto Killah">
-      <img src="foto2.jpg" alt="Seto Killah junto al mural">
+    <section class="photos" aria-label="Seto Killah">
+      <img src="perfil.jpg" alt="Seto Killah en su estudio musical">
+      <img src="foto-tatuando.jpg" alt="Seto Killah tatuando a un cliente">
     </section>
 
     <section class="bio">
@@ -216,42 +252,62 @@ footer {
     <h2 class="section-title">MIS REDES</h2>
 
     <section class="socials">
-      <a class="social" href="https://www.instagram.com/setokillah?igsh=MTN3bHVzbXlxcW0ycQ==" target="_blank" rel="noopener">
+
+      <a class="social"
+         href="https://www.instagram.com/setokillah?igsh=MTN3bHVzbXlxcW0ycQ=="
+         target="_blank" rel="noopener noreferrer">
         <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="">
-        Instagram
+        <span>Instagram</span>
       </a>
 
-      <a class="social" href="https://www.tiktok.com/@seto.killah?_r=1&_t=ZS-94zCkB5hFuT" target="_blank" rel="noopener">
+      <a class="social"
+         href="https://www.tiktok.com/@seto.killah?_r=1&_t=ZS-94zCkB5hFuT"
+         target="_blank" rel="noopener noreferrer">
         <img src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="">
-        TikTok
+        <span>TikTok</span>
       </a>
 
-      <a class="social" href="https://youtube.com/@setokillah4ta-fam?si=QdrtkZu61oMCIN__" target="_blank" rel="noopener">
+      <a class="social"
+         href="https://youtube.com/@setokillah4ta-fam?si=QdrtkZu61oMCIN__"
+         target="_blank" rel="noopener noreferrer">
         <img src="https://cdn.simpleicons.org/youtube/FF0033" alt="">
-        YouTube
+        <span>YouTube</span>
       </a>
 
-      <a class="social" href="https://open.spotify.com/artist/0cPqA7fn4r8WcMWQUMUP4F?si=8Ks6PfjUQdOb_qTu5Mu_Dw&utm_source=copy-link" target="_blank" rel="noopener">
+      <a class="social"
+         href="https://open.spotify.com/artist/0cPqA7fn4r8WcMWQUMUP4F?si=8Ks6PfjUQdOb_qTu5Mu_Dw&utm_source=copy-link"
+         target="_blank" rel="noopener noreferrer">
         <img src="https://cdn.simpleicons.org/spotify/1ED760" alt="">
-        Spotify
+        <span>Spotify</span>
       </a>
 
-      <a class="social" href="https://www.facebook.com/share/17sMiKRwQr/" target="_blank" rel="noopener">
+      <a class="social"
+         href="https://www.facebook.com/share/17sMiKRwQr/"
+         target="_blank" rel="noopener noreferrer">
         <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="">
-        Facebook
+        <span>Facebook</span>
       </a>
+
+      <a class="social"
+         href="https://www.instagram.com/tintayfuego_/"
+         target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.simpleicons.org/instagram/E4405F" alt="">
+        <span>Instagram Tattoo</span>
+      </a>
+
     </section>
 
     <a class="contact whatsapp"
        href="https://wa.me/573118400185?text=Hola%20Seto%20Killah%2C%20vi%20tu%20p%C3%A1gina"
-       target="_blank" rel="noopener">
+       target="_blank" rel="noopener noreferrer">
       <img src="https://cdn.simpleicons.org/whatsapp/FFFFFF" alt="">
-      HABLAR POR WHATSAPP
+      <span>HABLAR POR WHATSAPP</span>
     </a>
 
     <a class="contact email"
        href="mailto:seto4tafamilia@gmail.com">
-      ✉ CONTACTO POR CORREO
+      <span aria-hidden="true">✉</span>
+      <span>CONTACTO POR CORREO</span>
     </a>
 
   </div>
